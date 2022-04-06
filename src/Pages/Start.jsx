@@ -1,15 +1,62 @@
 import React from 'react';
-import '../App.css';
 import {useEffect,useState,useRef} from 'react'
+import styled from 'styled-components'
 import anime from 'animejs';
 import {Link} from 'react-router-dom'
 
+const Container = styled.div`
+      display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height:100vh;
+`
+const ML5 = styled.h1`
+    position: relative;
+    font-weight: 300;
+    font-size: 10em;
+    color: #F7F5F2;
+    &:hover{
+      cursor: pointer;
+    }
+`
+const TextWrap = styled.span`
+      position: relative;
+    display: inline-block;
+    padding-top: 0.4em;
+    padding-right: 0.05em;
+    padding-bottom: 0.45em;
+    line-height: 1em;
+`
+const Line = styled.span`
+      position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    height: 3px;
+    width: 100%;
+    background-color: #F7F5F2;
+    transform-origin: 0.5 0;
 
+`
+const AmperSand=styled.span`
+      font-weight: 400;
+    width: 1em;
+    margin-right: 1.7em;
+    margin-left: 0.3em;
+    display: inline-block;
+    opacity: 0;
+    color:#F7F5F2;
+`
+const LetterLeft = styled.span`
+  
+`
+const LetterRight = styled.span`
+  
+`
 const Start = () => {
     const animation = useRef(null)
-    function clickFun(){
-        console.log('click')
-    }
     useEffect(()=>{
       animation.current=anime.timeline({loop:false})
       animation.current  .add({
@@ -53,20 +100,30 @@ const Start = () => {
       });    
     },[])
     return (
-        <div className="test" onClick={()=>clickFun()}>
+        <Container >
         <Link to="/home">
-            <h1 className="ml5">
-              <span className="text-wrapper">
-                 <span className="line line1"></span>
-                <span className="letters letters-left">Developer</span>
-                 <span className="letters ampersand">Kim's</span>
-                <span className="letters letters-right">Portfolio</span>
-                 <span className="line line2"></span>
-                </span>
-            </h1>
+            <ML5 className="ml5">
+              <TextWrap className="text-wrapper">
+                 <Line className="line line1"></Line>
+                <LetterLeft className="letters letters-left">Developer</LetterLeft>
+                 <AmperSand className="letters ampersand">Kim's</AmperSand>
+                <LetterRight className="letters letters-right">Portfolio</LetterRight>
+                 <Line className="line line2"></Line>
+                </TextWrap>
+            </ML5>
         </Link>
-      </div>
+      </Container>
     );
 };
 
 export default Start;
+
+{/* <h1 className="ml5">
+<span className="text-wrapper">
+   <span className="line line1"></span>
+  <span className="letters letters-left">Developer</span>
+   <span className="letters ampersand">Kim's</span>
+  <span className="letters letters-right">Portfolio</span>
+   <span className="line line2"></span>
+  </span>
+</h1> */}

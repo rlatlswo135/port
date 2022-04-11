@@ -14,7 +14,7 @@ export const data = {
             url:"https://rlatlswo135.github.io/"
         },
         {
-            title:'Coin-Trackker',
+            title:'Coin-Track',
             content:`API이용 간단한 Coin 시세 Tracker`,
             img:coinTracker,
             month:4,

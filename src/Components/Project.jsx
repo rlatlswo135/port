@@ -29,6 +29,7 @@ const Cover = styled.div`
     background-color: rgba(140,159,159,0.9);
     transition: 0.5s all;
     text-align: center;
+    padding:5%;
     &:hover{
         cursor: pointer;
     }

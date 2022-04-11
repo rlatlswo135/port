@@ -25,11 +25,13 @@ const PortBox = styled.div`
 const PortTop = styled.div`
     flex:1;
     text-align: center;
-    div{
-        padding-top:2%;
-        font-size:6em;
-        font-weight: 900;
-        letter-spacing:0.3em;
+    padding-top:2%;
+    font-size:6em;
+    font-weight: 900;
+    letter-spacing:0.3em;
+    @media screen and (max-width:1680px){
+        font-size:5em;
+        display:none;
     }
 `
 const PortBottom = styled.div`
@@ -47,7 +49,7 @@ const Port = () => {
             <Nav />
             <PortBox>
                 <PortTop>
-                    <div>PROJECTS</div>
+                    PROJECTS
                 </PortTop>
                 <PortBottom>
                     {sortedArray.map(key => {

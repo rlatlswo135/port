@@ -45,6 +45,13 @@ position: relative;
     height:700px;
     background-color: rgba(121,127,127,0.05);
     border-radius: 100%;
+    @media screen and (max-width:1680px){
+        width:500px;
+        height:500px;
+        left:60%;
+        top:0%;
+    }
+    
 `
 const Profile = styled.div`
 /* 프로필이미지 */
@@ -55,17 +62,12 @@ const Profile = styled.div`
     background-image: url(${profile4});
     background-size: cover;
     z-index:50;
+    @media screen and (max-width:1680px){
+        width:500px;
+        height:500px;
+    }
 `
-const Profile2 = styled.div`
-/* 프로필이미지 */
-    position: absolute;
-    width:700px;
-    height:700px;
-    border-radius:100%;
-    background-image: url(${profile});
-    background-size: cover;
-    z-index:50;
-`
+
 const ProfileContent = styled.div`
 /* 글씨부분 */
     position: absolute;
@@ -75,6 +77,10 @@ const ProfileContent = styled.div`
     font-size:5em;
     text-align: center;
     transform: scaleX(1.3);
+    @media screen and (max-width:1680px){
+        font-size:4.5em;
+        margin-left:20%;
+    }
 `
 const First = styled.div`
     font-size:2.4em;
@@ -96,10 +102,9 @@ const Third = styled.div`
     opacity: 0.4;
 `
 const ProfileContent2 = styled.p`
-    font-size:3em;
+    font-size:4em;
     position: absolute;
-    margin-top: 5%;    
-    margin-left: 27%;
+    margin:0 auto;
     padding-left:1%;
     ${Third}{
         padding-left: 1%;
@@ -108,6 +113,9 @@ const ProfileContent2 = styled.p`
         margin-top: 5%;
         padding-left:0.1em;
         letter-spacing: 0.2em;
+    }
+    @media screen and (max-width:1680px){
+        font-size:3em;
     }
 `
 const BoxThree = styled.div`
@@ -126,6 +134,9 @@ const SmallTitle = styled.div`
     padding-bottom:25%;
     background-color: rgba(50,50,50,1);
     z-index:200;
+    @media screen and (max-width:1680px){
+        font-size:3.5em;
+    } 
 `
 const ShowMore = styled.div`
         position: absolute;
@@ -140,6 +151,10 @@ const ShowMore = styled.div`
             cursor: pointer;
             text-decoration: underline;
         }
+        @media screen and (max-width:1680px){
+            top:110%;
+            left:35%;
+    }   
 `
 const CarouselBox = styled.div`
     flex:3;
@@ -147,6 +162,10 @@ const CarouselBox = styled.div`
     height:100%;
     padding:0% 12%;
     position: relative;
+    @media screen and (max-width:1680px){
+        margin:auto 0;
+        height:70%;
+    }  
 `
 const BoxFour = styled(BoxThree)`
     justify-content: center;
@@ -169,6 +188,9 @@ const BoxFour = styled(BoxThree)`
         &:nth-child(3){
             font-size:2em;
         }
+    }
+    @media screen and (max-width:1680px){
+        font-size:4.5em;
     }
 `
 const Test = styled.div`
@@ -258,7 +280,6 @@ const Home = () => {
             </Slide>
             <Slide>
                 <BoxTwo>
-                    <Profile2 />
                     <ProfileContent2>
                         <Third>6년의 유리가공 경력</Third>
                         <First>그 누구보다 뜨거웠고</First>
@@ -274,7 +295,6 @@ const Home = () => {
                         <Carousel
                             slides={slides}
                             goToSlide={imgSlide}
-                            offsetRadius={1}
                             showNavigation={false}
                             animationConfig={config.slow}
                         />

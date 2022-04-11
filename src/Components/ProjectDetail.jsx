@@ -33,14 +33,14 @@ const Img = styled.img`
 position: absolute;
     width:100%;
     height:100%;
-    top:0%;
+    top:5%;
     left:0%;
     opacity: 0.8;
 `
 const Text = styled.div`
     flex:1;
     padding-left:7%;
-    padding-top:5%;
+    padding-top:2%;
     font-size:2em;
     h1{
         margin:0px;
@@ -88,7 +88,6 @@ const UmMarket = (props) => {
     const params = useParams();
     const middle = Object.keys(data).map(item => data[item])
     const filterArray = middle.flat().filter(item => item.title === params.project)[0]
-    console.log(filterArray)
     return (
         <div>
             <Nav />

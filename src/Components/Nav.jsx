@@ -11,6 +11,8 @@ const Container = styled.div`
     width:100%;
     position: fixed;
     z-index:100;
+    padding-top:2%;
+    padding-bottom:2%;
 `
 const NavLeft = styled.div`
     font-size:1.9em;

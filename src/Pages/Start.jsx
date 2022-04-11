@@ -14,19 +14,11 @@ const Container = styled.div`
 const ML5 = styled.h1`
     position: relative;
     font-weight: 300;
-    font-size: 10em;
+    font-size: 9em;
     color: #F7F5F2;
     &:hover{
       cursor: pointer;
     }
-`
-const TextWrap = styled.span`
-      position: relative;
-    display: inline-block;
-    padding-top: 0.4em;
-    padding-right: 0.05em;
-    padding-bottom: 0.45em;
-    line-height: 1em;
 `
 const Line = styled.span`
       position: absolute;
@@ -38,7 +30,20 @@ const Line = styled.span`
     width: 100%;
     background-color: #F7F5F2;
     transform-origin: 0.5 0;
-
+    @media screen and (max-width:1520px){
+      display:none;
+    }
+`
+const TextWrap = styled.span`
+      position: relative;
+    display: inline-block;
+    padding-top: 0.4em;
+    padding-right: 0.05em;
+    padding-bottom: 0.45em;
+    line-height: 1em;
+    @media screen and (max-width:1520px){
+      text-align: center;
+    }
 `
 const AmperSand=styled.span`
       font-weight: 400;

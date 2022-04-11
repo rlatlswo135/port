@@ -29,7 +29,7 @@ const Cover = styled.div`
     background-color: rgba(140,159,159,0.9);
     transition: 0.5s all;
     text-align: center;
-    padding:5%;
+    padding:0% 5%;
     &:hover{
         cursor: pointer;
     }
@@ -57,7 +57,6 @@ const ImgWrap = styled.div`
 `
 const Project = (props) => {
     const navigate = useNavigate();
-
     function clickFun(data){
         navigate(`/port/${data.title}`)
     }
@@ -66,7 +65,10 @@ const Project = (props) => {
             <Title>{props.data.year}</Title>
             <ProjectBox>
                 {props.data.projects.map(project => {
+                    let divi = props.data.platform === 'All'? true : props.data.platform === project.platform
+                    console.log(props.data.projects.reverse())
                     return(
+                        divi?
                         <ImgWrap>
                             <Cover onClick={()=>clickFun(project,project.img)}>
                                 <h1>{project.title}</h1>
@@ -75,6 +77,7 @@ const Project = (props) => {
                             </Cover>
                             <Img src={project.img} data={project}></Img>
                         </ImgWrap>
+                        :null
                     )
                 })}
             </ProjectBox>

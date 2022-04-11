@@ -5,6 +5,8 @@ import umMarket from '../slideImg/umMarket.png'
 import {useSpring,animated} from 'react-spring'
 import {useLocation,useParams} from 'react-router-dom'
 import {data} from '../data'
+import {BsGithub} from 'react-icons/bs'
+import {SiNotion} from 'react-icons/si'
 
 
 const clickAni = keyframes`
@@ -44,6 +46,11 @@ const Text = styled.div`
     font-size:2em;
     h1{
         margin:0px;
+        span{
+            font-size:0.5em;
+            opacity: 0.4;
+            margin-left:2%;
+        }
     }
     h3{
         opacity: 0.7;
@@ -62,8 +69,11 @@ const Text = styled.div`
     div{
         padding-top: 20%;
         font-size:1.5em;
-        display:flex;
+        display: flex;
         flex-direction: column;
+        @media screen and (max-width:1680px){
+            padding-top:5%;
+    }
     }
 `
 const Link = styled.a`
@@ -76,10 +86,18 @@ const GoGit = styled.a`
     margin-bottom:5%;
     span{
         padding-left:3%;
-        font-size:0.5em;
+        font-size:1.1em;
+        font-weight: 600;
     }
     &:hover{
         text-decoration: underline;
+    }
+`
+const GoNotion = styled(GoGit)`
+    span{
+        &:nth-child(3){
+            font-size:0.55em;
+        }
     }
 `
 const UmMarket = (props) => {
@@ -96,13 +114,22 @@ const UmMarket = (props) => {
                     <Img src={filterArray.img}></Img>
                 </Link>
                 <Text>
-                    <h1>{filterArray.title}</h1>
+                    <h1>{filterArray.title}<span>{`(${filterArray.platform})`}</span></h1>
                     <h3>{filterArray.content}</h3>
                     <h2>{`${filterArray.type}-Project`}{filterArray.type === 'Team' ? <span>(Back-End)</span> : null}</h2>
                     <h4>{`<- Click`}</h4>
                     <div>
-                        <GoGit href={filterArray.git} target="_blank">Git</GoGit>
-                        {filterArray.notion ? <GoGit href={filterArray.notion} target="_blank">Notion<span>(상세기능)</span></GoGit>:null}
+                        <GoGit href={filterArray.git} target="_blank">
+                            <BsGithub/>
+                            <span>Git Repo</span>
+                        </GoGit>
+                        {filterArray.notion 
+                        ?
+                        <GoNotion href={filterArray.notion} target="_blank">
+                            <SiNotion/>
+                            <span>Notion</span>
+                            <span>(상세기능)</span>
+                            </GoNotion>:null}
                     </div>
                 </Text>
             </Content>

@@ -67,10 +67,12 @@ const PortBottom = styled.div`
 
 const Port = () => {
     const [platForm,setPlatForm] = useState('All')
+
     const sortedArray = Object.keys(data).sort((a,b)=>a-b)
     function changeFun(e){
         setPlatForm(e.target.value)
     }
+
     return (
         <Container>
             <Nav />

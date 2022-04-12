@@ -1,7 +1,7 @@
 import React from 'react';
 import Nav from '../Components/Nav'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
-import {faEnvelope} from '@fortawesome/free-solid-svg-icons'
+import {faEnvelope,faBold} from '@fortawesome/free-solid-svg-icons'
 import {faGithub} from '@fortawesome/free-brands-svg-icons'
 import styled,{keyframes} from 'styled-components'
 
@@ -30,6 +30,11 @@ const ContactItem = styled.div`
     justify-content: space-around;
     margin-top: 5%;
     animation: ${tesAni} 1s 0s linear;
+    a{
+        &:hover{
+            text-decoration: underline;
+        }
+    }
 `
 const ContactText = styled.p`
     font-size:4em;
@@ -41,14 +46,20 @@ const ContactText = styled.p`
 
 const Contact = () => {
     const data = {
+        github:{
+            icons:faGithub,
+            content:'작업물을 기록합니다',
+            url:"https://github.com/rlatlswo135"
+        },
+        velog:{
+            icons:faBold,
+            content:'가벼운 일기장입니다',
+            url:"https://velog.io/@cjkim"
+        }
+        ,
         mail:{
             icons:faEnvelope,
             content:'rlatlswo13@gmail.com'
-        },
-        github:{
-            icons:faGithub,
-            content:'github.com/rlatlswo135',
-            url:"https://github.com/rlatlswo135"
         }
     }
     return (

@@ -13,6 +13,7 @@ import coinTracker from '../slideImg/coinTracker.png'
 import { config, useSpring, animated, useTransition } from 'react-spring';
 import { useNavigate } from 'react-router-dom'
 import { FallingLines } from 'react-loader-spinner'
+import {data} from '../data'
 
 
 const appearAni = keyframes`
@@ -29,7 +30,7 @@ const testAni = keyframes`
 const BoxOne = styled.div`
     height:100vh;
     overflow: hidden;
-    padding-top: 7%;
+    padding-top: 12%;
     padding-left:2%;
 `
 const BoxTwo = styled.div`
@@ -152,20 +153,25 @@ const ShowMore = styled.div`
             text-decoration: underline;
         }
         @media screen and (max-width:1680px){
-            top:110%;
-            left:35%;
+            top:113%;
+            left:36%;
     }   
 `
 const CarouselBox = styled.div`
     flex:3;
     width:100%;
-    height:100%;
+    height:90%;
     padding:0% 12%;
     position: relative;
+    /* div{
+        &:nth-child(2){
+            width:100%;
+        }
+    }   */
     @media screen and (max-width:1680px){
         margin:auto 0;
         height:70%;
-    }  
+    }
 `
 const BoxFour = styled(BoxThree)`
     justify-content: center;
@@ -205,9 +211,10 @@ const LoadBox = styled.div`
 // position을 static이 이 아닌 다른걸주면 수도셀렉터가 안먹는다;; 왜그러지? (&:hover등)
 const Home = () => {
     const navigate = useNavigate();
-    const [imgSlide, setImgSlide] = useState(0)
+    const [imgSlide, setImgSlide] = useState(2)
     const [sideAni, setSideAni] = useState(true)
     const [loading, setLoading] = useState(true)
+    const [showSlideNav,setShowSlideNav] = useState(false)
     const imgAni = useSpring({
         to: { x: 0 },
         from: { x: -500 },
@@ -219,21 +226,12 @@ const Home = () => {
         to: { opacity: 1 },
         loop: true
     })
-
-    const slides = [
-        {
-            key: 1,
-            content: <img src={ohJeju} style={{ opacity: 0.8 }} alt="1" />
-        },
-        {
-            key: 2,
-            content: <img src={umMarket} style={{ opacity: 0.8 }} alt="2" />
-        },
-        {
-            key: 3,
-            content: <img src={coinTracker} style={{ opacity: 0.8 }} alt="3" />
+    const slides = Object.keys(data).map(item => data[item]).flat().map((item,index) => {
+        return {
+            key:index,
+            content:<img src={item.img} style={{opacity:0.7}} alt={`${index}`} />
         }
-    ].map((slide, index) => { return { ...slide, onClick: () => setImgSlide(index) } })
+    }).map((slide, index) => { return { ...slide, onClick: () => setImgSlide(index) } })
 
     function scrollFun(obj) {
         if (obj.from === 0 && obj.to === 0) {
@@ -297,6 +295,7 @@ const Home = () => {
                             goToSlide={imgSlide}
                             showNavigation={false}
                             animationConfig={config.slow}
+                            offsetRadius={2}
                         />
                         <ShowMore onClick={clickFun}>SHOW MORE</ShowMore>
                     </CarouselBox>

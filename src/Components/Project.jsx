@@ -60,20 +60,21 @@ const Project = (props) => {
     function clickFun(data){
         navigate(`/port/${data.title}`)
     }
+    const copy = [...props.data.projects].reverse()
+    console.log(copy)
     return (
         <Container>
             <Title>{props.data.year}</Title>
             <ProjectBox>
-                {props.data.projects.map(project => {
+                {copy.map(project => {
                     let divi = props.data.platform === 'All'? true : props.data.platform === project.platform
-                    console.log(props.data.projects.reverse())
                     return(
                         divi?
                         <ImgWrap>
                             <Cover onClick={()=>clickFun(project,project.img)}>
                                 <h1>{project.title}</h1>
                                 <h2>{project.content}</h2>
-                                <h4>{`${props.data.year}-${project.month}월`}</h4>
+                                <h4>{`${props.data.year} : ${project.month}월`}</h4>
                             </Cover>
                             <Img src={project.img} data={project}></Img>
                         </ImgWrap>

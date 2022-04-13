@@ -23,23 +23,33 @@ const ContactBox = styled.div`
     padding:10%;
     overflow: hidden;
     height:92%;
+    @media screen and (max-width:1680px){
+        padding:7%;
+    }
 `
 const ContactItem = styled.div`
     display:flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
     margin-top: 5%;
     animation: ${tesAni} 1s 0s linear;
+    padding:0% 18%;
     a{
         &:hover{
             text-decoration: underline;
         }
+    }
+    @media screen and (max-width:1680px){
+        font-size:0.95em;
     }
 `
 const ContactText = styled.p`
     font-size:4em;
     font-weight: 600;
     letter-spacing: 0.15em;
+    @media screen and (max-width:1680px){
+        font-size:3em;
+    }
 `
 
 // 각 아이템에 애니메이션 주기

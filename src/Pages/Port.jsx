@@ -68,7 +68,7 @@ const PortBottom = styled.div`
 const Port = () => {
     const [platForm,setPlatForm] = useState('All')
 
-    const sortedArray = Object.keys(data).sort((a,b)=>a-b)
+    const sortedArray = Object.keys(data).reverse()
     function changeFun(e){
         setPlatForm(e.target.value)
     }

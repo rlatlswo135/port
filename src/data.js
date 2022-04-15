@@ -35,6 +35,16 @@ export const data = {
             type:'Solo',
             url:'https://expo.dev/@kimcj/CJTodo',
             platform:'Mobile'
+        },
+        {
+            title:'Eating & Die',
+            content:'간단한 웹게임'
+            img:,
+            month:'22-04',
+            git:"https://github.com/rlatlswo135/dino",
+            type:'Solo',
+            url:'https://rlatlswo135.github.io/dino/',
+            platform:'Web'
         }
     ],
     'TEAM':[

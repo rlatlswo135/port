@@ -3,6 +3,7 @@ import Nav from '../Components/Nav'
 import styled,{keyframes} from 'styled-components'
 import Project from '../Components/Project'
 import {data} from '../data'
+import {motion} from 'framer-motion'
 
 const appearAni = keyframes`
     from{
@@ -14,15 +15,19 @@ const appearAni = keyframes`
 const Container = styled.div`
     height:100vh;
     max-height: 100vh;
+
 `
-const PortBox = styled.div`
+const PortBox = styled(motion.div)`
     height:100%;
     padding:3% 5%;
     display:flex;
     flex-direction: column;
     animation: 0.5s linear 0s ${appearAni};
+    @media screen and (max-width:1680px){
+        padding-top:5%;
+    }
 `
-const PortTop = styled.div`
+const PortTop = styled(motion.div)`
     display:flex;
     justify-content: center;
     text-align: center;
@@ -54,7 +59,7 @@ const TopTitle = styled.div`
         display:none;
     } 
 `
-const PortBottom = styled.div`
+const PortBottom = styled(motion.div)`
     flex:5;
     display:flex;
     flex-direction: column;
@@ -63,7 +68,29 @@ const PortBottom = styled.div`
         padding-top:0%;
     } 
 `
-
+const boxVars={
+    start:{opacity: 0,y:100},
+    end:{
+        opacity: 1,
+        y:0,
+        transition:{
+            type:"spring",
+            delayChildren:0.3,
+            staggerChildren:0.5
+        }
+    }
+}
+const itemVars={
+    start:{opacity:0,y:100},
+    end:{
+        opacity: 1,
+        y:0,
+        transition: {
+            type:"spring",
+            duration:2
+        }
+    }
+}
 
 const Port = () => {
     const [platForm,setPlatForm] = useState('All')
@@ -76,8 +103,8 @@ const Port = () => {
     return (
         <Container>
             <Nav />
-            <PortBox>
-                <PortTop>
+            <PortBox variants={boxVars} initial={'start'} animate={'end'}>
+                <PortTop variants={itemVars}>
                     <TopTitle>PROJECTS</TopTitle>
                     <Platform onChange={(e)=>changeFun(e)}>
                         <option value="All" selected>PlatForm</option>
@@ -85,7 +112,7 @@ const Port = () => {
                         <option value="Mobile">Mobile</option>
                     </Platform>
                 </PortTop>
-                <PortBottom>
+                <PortBottom variants={itemVars}>
                     {sortedArray.map(key => {
                         return(
                             <Project data={{

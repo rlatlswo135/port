@@ -13,6 +13,9 @@ const Container = styled.div`
     z-index:100;
     padding-top:2%;
     padding-bottom:2%;
+    @media screen and (max-width:1680px){
+        border-bottom: 3px solid rgba(121,127,127,0.5);
+    }
 `
 const NavLeft = styled.div`
     font-size:1.9em;
@@ -25,6 +28,10 @@ const NavRight = styled.div`
     justify-content: space-around;
     font-size:1.2em;
     font-weight: 500;
+    @media screen and (max-width:1680px){
+        font-size:1.15em;
+        font-weight: 600;
+    }
 `
 const NavContent = styled.div`
     
@@ -41,6 +48,9 @@ const Nav = () => {
             <NavRight>
                 <Link to='/home'>
                     <NavContent>HOME</NavContent>
+                </Link>
+                <Link to="/about">
+                    <NavContent>ABOUT ME</NavContent>
                 </Link>
                 <Link to="/port">
                     <NavContent>PROJECTS</NavContent>

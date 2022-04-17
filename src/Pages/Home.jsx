@@ -14,7 +14,7 @@ import { config, useSpring, animated, useTransition } from 'react-spring';
 import { useNavigate } from 'react-router-dom'
 import { FallingLines } from 'react-loader-spinner'
 import {data} from '../data'
-
+import {Contact} from '../Pages/Contact'
 
 const appearAni = keyframes`
     from{
@@ -257,7 +257,7 @@ const Home = () => {
                         loading
                             ?
                             <LoadBox>
-                                <FallingLines width="500" color="gray" />
+                                <FallingLines width="300" color="gray" />
                             </LoadBox>
                             :
                             <>
@@ -276,7 +276,7 @@ const Home = () => {
                     }
                 </Test>
             </Slide>
-            <Slide>
+            {/* <Slide>
                 <BoxTwo>
                     <ProfileContent2>
                         <Third>6년의 유리가공 경력</Third>
@@ -300,19 +300,8 @@ const Home = () => {
                         <ShowMore onClick={clickFun}>SHOW MORE</ShowMore>
                     </CarouselBox>
                 </BoxThree>
-                {/* 포폴 이미지슬라이드 밑에 show Project 하고 */}
-            </Slide>
-            <Slide>
-                <BoxFour as={animated.div} style={lastAni}>
-                    <div>I'M</div>
-                    <div>STILL</div>
-                    <div>MOVING FOWORD</div>
-                </BoxFour>
-            </Slide>
+            </Slide> */}
         </FullPage>
-        // <Container>
-        //     <Nav />
-        // </Container>
     );
 };
 

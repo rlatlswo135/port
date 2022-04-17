@@ -6,6 +6,7 @@ import Home from './Pages/Home'
 import Contact from './Pages/Contact'
 import Port from './Pages/Port'
 import ProjectDetail from './Components/ProjectDetail'
+import AboutMe from './Pages/AboutMe'
 import {data} from './data'
 const GlobalStyle = createGlobalStyle`
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');
@@ -34,6 +35,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Start/>} />
           <Route path='/home' element={<Home/>} />
+          <Route path="/about" element={<AboutMe />} />
           <Route path='/port' element={<Port/>} />
           <Route path='/port/:project' element={<ProjectDetail />} />
           <Route path='/contact' element={<Contact />} />

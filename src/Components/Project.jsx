@@ -2,8 +2,9 @@ import React from 'react';
 import styled from 'styled-components'
 import umMarket from '../slideImg/umMarket.png'
 import {Link,useNavigate} from 'react-router-dom'
+import { motion } from 'framer-motion';
 
-const Container = styled.div`
+const Container = styled(motion.div)`
     margin-bottom:7%;
 `
 const Title = styled.div`
@@ -11,7 +12,7 @@ const Title = styled.div`
     font-weight:900;
     padding-left:0.7%;
 `
-const ProjectBox = styled.div`
+const ProjectBox = styled(motion.div)`
     display:flex;
     padding-left:0.5%;
     padding-top:0.5%;
@@ -55,6 +56,29 @@ const ImgWrap = styled.div`
         }
     }
 `
+const boxVars={
+    start:{opacity: 0,y:100},
+    end:{
+        opacity: 1,
+        y:0,
+        transition:{
+            type:"spring",
+            delayChildren:0.3,
+            staggerChildren:0.5
+        }
+    }
+}
+const itemVars={
+    start:{opacity:0,y:100},
+    end:{
+        opacity: 1,
+        y:0,
+        transition: {
+            type:"spring",
+            duration:1.5
+        }
+    }
+}
 const Project = (props) => {
     const navigate = useNavigate();
     function clickFun(data){
@@ -63,9 +87,9 @@ const Project = (props) => {
     const copy = [...props.data.projects].reverse()
     console.log(copy)
     return (
-        <Container>
+        <Container variants={boxVars}>
             <Title>{props.data.year}</Title>
-            <ProjectBox>
+            <ProjectBox variants={itemVars}>
                 {copy.map(project => {
                     let divi = props.data.platform === 'All'? true : props.data.platform === project.platform
                     return(
@@ -74,7 +98,6 @@ const Project = (props) => {
                             <Cover onClick={()=>clickFun(project,project.img)}>
                                 <h1>{project.title}</h1>
                                 <h2>{project.content}</h2>
-                                <h4>{`${props.data.year} : ${project.month}월`}</h4>
                             </Cover>
                             <Img src={project.img} data={project}></Img>
                         </ImgWrap>

@@ -30,7 +30,6 @@ const NavRight = styled.div`
     font-weight: 500;
     @media screen and (max-width:1680px){
         font-size:1.15em;
-        font-weight: 600;
     }
 `
 const NavContent = styled.div`

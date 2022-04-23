@@ -68,29 +68,7 @@ const PortBottom = styled(motion.div)`
         padding-top:0%;
     } 
 `
-const boxVars={
-    start:{opacity: 0,y:100},
-    end:{
-        opacity: 1,
-        y:0,
-        transition:{
-            type:"spring",
-            delayChildren:0.3,
-            staggerChildren:0.5
-        }
-    }
-}
-const itemVars={
-    start:{opacity:0,y:100},
-    end:{
-        opacity: 1,
-        y:0,
-        transition: {
-            type:"spring",
-            duration:2
-        }
-    }
-}
+
 
 const Port = () => {
     const [platForm,setPlatForm] = useState('All')
@@ -103,8 +81,8 @@ const Port = () => {
     return (
         <Container>
             <Nav />
-            <PortBox variants={boxVars} initial={'start'} animate={'end'}>
-                <PortTop variants={itemVars}>
+            <PortBox >
+                <PortTop >
                     <TopTitle>PROJECTS</TopTitle>
                     <Platform onChange={(e)=>changeFun(e)}>
                         <option value="All" selected>PlatForm</option>
@@ -112,7 +90,7 @@ const Port = () => {
                         <option value="Mobile">Mobile</option>
                     </Platform>
                 </PortTop>
-                <PortBottom variants={itemVars}>
+                <PortBottom >
                     {sortedArray.map(key => {
                         return(
                             <Project data={{

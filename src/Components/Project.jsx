@@ -56,29 +56,7 @@ const ImgWrap = styled.div`
         }
     }
 `
-const boxVars={
-    start:{opacity: 0,y:100},
-    end:{
-        opacity: 1,
-        y:0,
-        transition:{
-            type:"spring",
-            delayChildren:0.3,
-            staggerChildren:0.5
-        }
-    }
-}
-const itemVars={
-    start:{opacity:0,y:100},
-    end:{
-        opacity: 1,
-        y:0,
-        transition: {
-            type:"spring",
-            duration:1.5
-        }
-    }
-}
+
 const Project = (props) => {
     const navigate = useNavigate();
     function clickFun(data){
@@ -87,9 +65,9 @@ const Project = (props) => {
     const copy = [...props.data.projects].reverse()
     console.log(copy)
     return (
-        <Container variants={boxVars}>
+        <Container >
             <Title>{props.data.year}</Title>
-            <ProjectBox variants={itemVars}>
+            <ProjectBox >
                 {copy.map(project => {
                     let divi = props.data.platform === 'All'? true : props.data.platform === project.platform
                     return(

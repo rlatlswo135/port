@@ -6,7 +6,8 @@ import {useSpring,animated} from 'react-spring'
 import {useLocation,useParams} from 'react-router-dom'
 import {data} from '../data'
 import {BsGithub} from 'react-icons/bs'
-import {SiNotion} from 'react-icons/si'
+import { motion } from 'framer-motion';
+import {FaBlogger} from 'react-icons/fa'
 
 
 const clickAni = keyframes`
@@ -24,60 +25,27 @@ const appearAni = keyframes`
         opacity: 1;
     }
 `
-const Content = styled.div`
+const Content = styled(motion.div)`
     height:100vh;
     padding:6% 5%;
-    display:flex;
     justify-content: center;
     animation: 0.5s linear 0s ${appearAni};
+    flex:1;
 `
 const Img = styled.img`
-position: absolute;
     width:100%;
     height:100%;
     top:5%;
     left:0%;
     opacity: 0.8;
 `
-const Text = styled.div`
-    flex:1;
-    padding-left:7%;
-    padding-top:2%;
-    font-size:2em;
-    h1{
-        margin:0px;
-        span{
-            font-size:0.5em;
-            opacity: 0.4;
-            margin-left:2%;
-        }
-    }
-    h3{
-        opacity: 0.7;
-    }
-    h4{
-        padding-top:10%;
-        animation: 1s linear ${clickAni} infinite;
-    }
-    h2{
-        opacity: 0.2;
-        span{
-            font-size:0.7em;
-            padding-left:3%;
-        }
-    }
-    div{
-        padding-top: 20%;
-        font-size:1.5em;
-        display: flex;
-        flex-direction: column;
-        @media screen and (max-width:1680px){
-            padding-top:5%;
-    }
-    }
+const Text = styled(motion.div)`
+    flex:2;
+    padding-top:3.5%;
+
 `
 const Link = styled.a`
-    flex:1;
+    flex:0.5;
     position: relative;
 `
 const GoGit = styled.a`
@@ -93,47 +61,99 @@ const GoGit = styled.a`
         text-decoration: underline;
     }
 `
-const GoNotion = styled(GoGit)`
-    span{
-        &:nth-child(3){
-            font-size:0.55em;
-        }
+const GoBlog = styled(GoGit)`
+`
+
+const Detail = styled.div`
+    h4{
+        font-size: 2.5em;
+        animation: 1s linear ${clickAni} infinite;
     }
+    @media screen and (max-width:1680px){
+        h4{
+            font-size:2em;
+        }
+    } 
+`
+const MiniTitle = styled.ul`
+    font-size:2.5em;
+    font-weight: 900;
+    opacity: 0.8;
+    margin-bottom: 6%;
+    a{
+        font-size:0.8em;
+    }
+    @media screen and (max-width:1680px){
+        font-size:2em;
+    } 
+`
+const DetailText = styled.li`
+    padding-top: 2%;
+    font-size:0.6em;
+    list-style: none;
+    letter-spacing: 0.05em;
+`
+const Container = styled.div`
+    display:flex;
+`
+const Go = styled(motion.div)`
+    flex:1;
+    display:flex;
+    flex-direction: column;
+    font-size:2.5em;
+    justify-content: center;
+    padding-left:1%;
 `
 const UmMarket = (props) => {
     // props던 state던 없으면 null로나옴
-    const {state} = useLocation()
     const params = useParams();
     const middle = Object.keys(data).map(item => data[item])
     const filterArray = middle.flat().filter(item => item.title === params.project)[0]
     return (
-        <div>
-            <Nav />
-            <Content>
+        <>
+        <Nav />
+        <Container>
+            <Content initial={{x:-200,opacity:0}} animate={{x:0,opacity:1}} transition={{duration:0.8}}>
                 <Link href={filterArray.url} target="blank">
                     <Img src={filterArray.img}></Img>
                 </Link>
-                <Text>
-                    <h1>{filterArray.title}<span>{`(${filterArray.platform})`}</span></h1>
-                    <h3>{filterArray.content}</h3>
-                    <h2>{`${filterArray.type}-Project`}{filterArray.type === 'Team' ? <span>(Back-End)</span> : null}</h2>
-                    <h4>{`<- Click`}</h4>
-                    <div>
-                        <GoGit href={filterArray.git} target="_blank">
-                            <BsGithub/>
-                            <span>Git Repo</span>
-                        </GoGit>
-                        {filterArray.notion 
-                        ?
-                        <GoNotion href={filterArray.notion} target="_blank">
-                            <SiNotion/>
-                            <span>Notion</span>
-                            <span>(상세기능)</span>
-                            </GoNotion>:null}
-                    </div>
-                </Text>
             </Content>
-        </div>
+            <Text initial={{y:-200,opacity:0}} animate={{y:0,opacity:1}} transition={{duration:0.8}}>
+               <Detail>
+                        {
+                            Object.keys(filterArray.detail).map((title) => {
+                                if(title === 'Link'){
+                                    return (
+                                    <MiniTitle>{title}
+                                    <div>
+                                        <a href={filterArray.detail[title]} target="_blank">{filterArray.detail[title]}</a>
+                                    </div>
+                                    </MiniTitle>)
+                                }
+                                return(
+                                    <MiniTitle>{title}
+                                        {filterArray.detail[title].map(text => <DetailText>{`- ${text}`}</DetailText>)}
+                                    </MiniTitle>
+                                )
+                            })
+                        }
+                    <h4>{`<- Click`}</h4>
+                    </Detail>
+                </Text>
+                    <Go initial={{x:200,opacity:0}} animate={{x:0,opacity:1}} transition={{duration:0.8}}>
+                        <GoGit href={filterArray.git} target="_blank">
+                            <BsGithub/><span>Git Repo</span>
+                        </GoGit>
+                        {
+                            filterArray.velog ? 
+                            <GoBlog href={filterArray.velog} target="_blank">
+                                <FaBlogger/><span>Velog</span>
+                            </GoBlog>
+                            :null
+                        }
+                    </Go>
+        </Container>
+        </>
     );
 };
 

@@ -11,8 +11,8 @@ const Container = styled.div`
     width:100%;
     position: fixed;
     z-index:100;
-    padding-top:2%;
-    padding-bottom:2%;
+    padding-top:1%;
+    padding-bottom:1%;
     @media screen and (max-width:1680px){
         border-bottom: 3px solid rgba(121,127,127,0.5);
     }

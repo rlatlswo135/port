@@ -102,8 +102,7 @@ const AboutMe = () => {
                 <BoxTwoItem variants={boxTwoItemVars}>
                     <h2>배움</h2>
                     <p>새로운것을 배움에서 오는 놀라움을 좋아합니다.</p>
-                    <p>영어도 개발자로써 필수라고 생각합니다. 주말에 조금이라도 시간을 투자합니다.</p>
-                    <p>알고리즘 공부도 주마다 학습합니다. 생각하는 힘이 개발자로써 성장이라고 생각합니다.</p>
+                    <p>알고리즘 공부를 주마다 합니다. 생각하는 힘이 개발자로써 성장이라고 생각합니다.</p>
                     <p><a href="https://programmers.co.kr/learn/courses/30/lessons/92334" target="_blank">프로그래머스 Lv1</a>을 자력으로 다 풀고 Lv2를 도전중입니다.</p>
                 </BoxTwoItem>
                 <BoxTwoItem variants={boxTwoItemVars}>
@@ -116,7 +115,6 @@ const AboutMe = () => {
                     <h2>부트캠프</h2>
                     <p>6개월의 부트캠프를 경험했습니다.</p>
                     <p>팀프로젝트를 진행하며 팀원과의 커뮤니케이션이 중요함을 느꼈습니다.</p>
-                    <p>저의 다양성을 존중하고 낙천적인 성격때문에 즐겁게 수료했습니다.</p>
                 </BoxTwoItem>
                 <BoxTwoItem variants={boxTwoItemVars}>
                     <h2>성실</h2>

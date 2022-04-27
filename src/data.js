@@ -113,6 +113,7 @@ export const data = {
             type:'Solo',
             url:'https://rlatlswo135.github.io/kimflix/',
             platform:'Web',
+            velog:"https://velog.io/@cjkim/NETFLIX-%ED%81%B4%EB%A1%9C%EB%8B%9D-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8",
             detail:{
                 '프로젝트 동기':['애니메이션 실력 향상 + 다양한 React 라이브러리를 배우고자 진행'],
                 '기능':[

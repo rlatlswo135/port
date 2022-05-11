@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/port/static/css/main.073c9b0a.css",
+    "main.js": "/port/static/js/main.ea7151f7.js",
+    "static/js/787.b2e1b36e.chunk.js": "/port/static/js/787.b2e1b36e.chunk.js",
+    "static/media/introduction.pdf": "/port/static/media/introduction.79f945de1b312e04bd13.pdf",
+    "static/media/profile.png": "/port/static/media/profile.50f8ed90282d90f0e90d.png",
+    "static/media/profile4.png": "/port/static/media/profile4.3f01a473429715bec1b4.png",
+    "static/media/profile1.png": "/port/static/media/profile1.80447e164b9e40c33531.png",
+    "static/media/profile3.png": "/port/static/media/profile3.2aa889cfc3c0aa68b1a8.png",
+    "static/media/piero.png": "/port/static/media/piero.627defd81e4b1ffcf480.png",
+    "static/media/coinTracker.png": "/port/static/media/coinTracker.73a79c40ed8c301908ed.png",
+    "static/media/ohJeju.png": "/port/static/media/ohJeju.d161974515014b8c5778.png",
+    "static/media/Todo.png": "/port/static/media/Todo.fc0c650c8573b34ee912.png",
+    "static/media/umMarket.png": "/port/static/media/umMarket.91750d981625012aff18.png",
+    "static/media/kimflix.png": "/port/static/media/kimflix.7ad5cd5304a7821b7492.png",
+    "index.html": "/port/index.html",
+    "main.073c9b0a.css.map": "/port/static/css/main.073c9b0a.css.map",
+    "main.ea7151f7.js.map": "/port/static/js/main.ea7151f7.js.map",
+    "787.b2e1b36e.chunk.js.map": "/port/static/js/787.b2e1b36e.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.073c9b0a.css",
+    "static/js/main.ea7151f7.js"
+  ]
+}

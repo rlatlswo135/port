@@ -95,7 +95,7 @@ const AboutMe = () => {
             <BoxOne variants={boxVars}>
                 <h1>안녕하세요. 프론트엔드 개발자를 목표로하는 김신재입니다.</h1>
                 <h1>항상 더 나은 '사람'이 되기위해서 늘 겸손하게. 배우려는 자세로 임합니다.
-                    <a href={pdf} download="김신재_이력서">(이력서 다운로드)</a>
+                    {/* <a href={pdf} download="김신재_이력서">(이력서 다운로드)</a> */}
                     </h1>
             </BoxOne>
             <BoxTwo variants={boxVars}>
